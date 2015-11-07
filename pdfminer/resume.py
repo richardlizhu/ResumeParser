@@ -3,6 +3,10 @@ from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
+from os import listdir
+from os.path import isfile, join
+import re
+
 
 def convert(fname, pages=None):
     if not pages:
@@ -49,10 +53,27 @@ def convertPlain(fname, pages=None):
 
 
 def extractNums(text):
-    nums = []
+    return re.findall(r"[-+]?\d*\.\d+|\d+",text)
+
+def getGPA(nums):
+    numbers = re.findall(r"[-+]?\d*\.\d+|\d+",nums)
+    return numbers[0]
+
+def getScore():
+    return 1.0
 
 
 
-plainText = (convertPlain('document.pdf'))
-styleText = convert('document.pdft')
-print(extractNums(plainText))
+
+myPath = "./sampleResume"
+outputList = []
+onlyFiles = [ f for f in listdir(myPath) if isfile(join(myPath,f)) ]
+for singleFile in onlyFiles:
+    plainText = convertPlain(myPath +"/"+ singleFile)
+    gpaText = plainText.upper().find("GPA")
+    print(getGPA(plainText[gpaText:gpaText + 20]))
+
+#plainText = (convertPlain('document.pdf'))
+#styleText = convert('document.pdf')
+#gpaText = plainText.upper().find("GPA")
+#print(getGPA(plainText[gpaText:gpaText + 20]))
