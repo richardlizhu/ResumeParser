@@ -1,0 +1,87 @@
+Richard Zhu 
+richardlizhu@gmail.com 
+301-633-7929 
+Awards  United States Physics Olympiad Semi-Finalist, Silver Medalist 
+ Johns Hopkins Mathematics Tournament, 2nd place 
+ National and State AP Scholar (Most AP exams taken in all of Maryland (21)) 
+ American Regional Math League, 7th place in the Nation 
+ Maryland It’s Academic Competition, 1st place 
+ Montgomery Science Fair, 2nd place 
+ American Computer Science League (ACSL) All-Star Team 
+Work & 
+Experience 
+ 
+ Software Engineering Intern, Coupang 
+Implemented autonomous scrapers to crawl competitor websites, expanding the 
+product database by over 10x. Javascript/Node.js 
+Created website to facilitate easier hiring, doubling the hiring rate, HTML and CSS 
+Made a tool to help analyze spending habits of customers, Node.js and CSS 
+ 
+ Undergraduate Research, Carnegie Mellon University 
+Next Generation Read Mappers for Ultra-Efficient DNA Sequencing Analysis 
+Use dynamic programming to create a next generation DNA mapper up to 40x faster 
+than current generation DNA mappers, programmed in C++ 
+ 
+ 
+2015 
+ 
+ 
+ 
+2014-2015 
+  Software Engineering Intern, Baosteel Group Finance, Co., Ltd 
+Analyzed the efficiency of business intelligence tools such as IBM Cognos 
+Programmed a user interface using Java, MySQL, and XML to access, read, write, and 
+alter their financial database  
+2014 
+  Research Intern, National Cancer Institute, National Institutes of Health 
+Researched Bcl-2, an essential, ubiquitous protein, and implicated Bcl-2 in 
+mutagenesis (carcinogenesis) by demonstrating Bcl-2 mutations altered function. 
+Researched possible future cancer therapy using small molecule inhibition of Bcl-2 
+Lysine Dimethylation in the BH4 Domain of Bcl-2 and its Functional Significance, 
+Published in The Journal of Immunology 
+2012-2013 
+ 
+Projects 
+ 
+ OneShotGG: A java app/website pair which uses machine learning, computer 
+vision, Tesseract optical character recognition technology, and a live Firebase 
+database to enhance and automate advanced calculations in League of Legends 
+ 
+ Carnegie Mellon Robotics Club: Currently working on Mobot project. The 
+objective is to create and program a robot which can autonomously traverse a slalom 
+type course in the least amount of time. Programmed in C++ 
+ 
+ 
+Education  School of Computer Science 
+Carnegie Mellon University, Pittsburgh, PA 
+Computer Science Major, Robotics and Machine Learning Minor 
+ 
+Present 
+  Science, Mathematics, and Computer Science Magnet Program 
+Montgomery Blair High School, Montgomery County, MD 
+GPA: 3.94/4.0 
+ACT Composite Score: 36 
+2010-2014 
+ 
+Skills 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Java 
+ Javascript/Node.js 
+ C/C++ 
+ Python 
+ HTML/CSS 
+ SML 
+ Object-Oriented Programming 
+ Algorithms and Data Structures 
+ Functional Programming 
+ Machine Learning 
+ 
+ 
+ 

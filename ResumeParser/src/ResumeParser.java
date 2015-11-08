@@ -1,12 +1,17 @@
+import org.apache.pdfbox.cos.COSDocument;
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.util.PDFTextStripper;
+
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
 public class ResumeParser {
@@ -48,6 +53,10 @@ public class ResumeParser {
 	public static void continueMethod(String folder) throws IOException {
         String[] colNames = {"Name", "Resume", "Score"};
 
+        PDFTextStripper pdfStripper = null;
+        PDDocument pdDoc = null;
+        COSDocument cosDoc = null;
+
 		folder = "./" + folder;
 		System.out.println(folder);
 		File toFolder = new File(folder);
@@ -55,9 +64,21 @@ public class ResumeParser {
 
         for (int i = 0; i < listOfFiles.length; i++) {
             File f = listOfFiles[i];
+            System.out.println(f);
 
-            OutputStream oos = new FileOutputStream(i + "test.pdf");
-            InputStream is = new FileInputStream(f);
+            PDFParser parser = new PDFParser(new FileInputStream(f));
+            parser.parse();
+            cosDoc = parser.getDocument();
+            pdfStripper = new PDFTextStripper();
+            pdDoc = new PDDocument(cosDoc);
+            pdfStripper.setStartPage(1);
+            pdfStripper.setEndPage(2);
+            String parsedText = pdfStripper.getText(pdDoc);
+
+            System.out.println(parsedText);
+
+            OutputStream oos = new FileOutputStream(i + "out.txt");
+            InputStream is = new ByteArrayInputStream(parsedText.getBytes(StandardCharsets.UTF_8));
             byte[] buf = new byte[8192];
 
             int c = 0;
@@ -69,6 +90,7 @@ public class ResumeParser {
 
             oos.close();
             is.close();
+            pdDoc.close();
         }
 
         Object[][] data = {
