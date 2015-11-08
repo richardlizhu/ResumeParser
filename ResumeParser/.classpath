@@ -2,5 +2,10 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="C:/Users/Richard/Downloads/commons-lang3-3.4/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Richard/Downloads/commons-lang3-3.4/commons-lang3-3.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Richard/Downloads/pdfbox-app-1.8.10.jar"/>
+	<classpathentry kind="lib" path="C:/cygwin64/home/Richard/ResumeParser/ResumeParser/lib/icepdf-core.jar"/>
+	<classpathentry kind="lib" path="C:/cygwin64/home/Richard/ResumeParser/ResumeParser/lib/icepdf-viewer.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
