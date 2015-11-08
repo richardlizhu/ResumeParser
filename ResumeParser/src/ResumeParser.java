@@ -153,7 +153,6 @@ public class ResumeParser {
                     controller.openDocument(listOfFiles[row].getAbsolutePath());
 
                     // show the component
-                    applicationFrame.pack();
                     applicationFrame.setVisible(true);
 
                 }
