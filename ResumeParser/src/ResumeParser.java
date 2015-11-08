@@ -144,22 +144,35 @@ public class ResumeParser {
                     applicationFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     applicationFrame.getContentPane().add(viewerComponentPanel);
 
-                    String folder = "./" + path;
-                    System.out.println(folder);
-                    File toFolder = new File(folder);
+                    System.out.println(path);
+                    File toFolder = new File(path);
                     File[] listOfFiles = toFolder.listFiles();
 
                     // Now that the GUI is all in place, we can try opening a PDF
                     controller.openDocument(listOfFiles[row].getAbsolutePath());
 
                     // show the component
-                    applicationFrame.setVisible(true);
-
+//                    applicationFrame.pack();
+//                    applicationFrame.setVisible(true);
+                    String[] choices = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+                    Integer feedback = getFeedback(choices);
                 }
             }
         });
 
         table.setFillsViewportHeight(true);
         return table;
+    }
+
+    public static Integer getFeedback(String choices[]) {
+        String s = (String) JOptionPane.showInputDialog(
+                null,
+                "Your rating for this resume.",
+                "Feedback",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                choices,
+                choices[4]);
+        return Integer.parseInt(s);
     }
 }
