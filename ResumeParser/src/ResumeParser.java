@@ -2,6 +2,9 @@ import org.apache.pdfbox.cos.COSDocument;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.util.PDFTextStripper;
+import org.icepdf.ri.common.MyAnnotationCallback;
+import org.icepdf.ri.common.SwingController;
+import org.icepdf.ri.common.SwingViewBuilder;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -100,7 +103,7 @@ public class ResumeParser {
                 {"Jane", "White", "Speed reading"},
                 {"Joe", "Brown", "Pool"}
         };
-        JTable table = createJTable(data, colNames);
+        JTable table = createJTable(data, colNames, folder);
         JScrollPane panel = new JScrollPane(table);
         panel.setLayout(new ScrollPaneLayout());
 
@@ -111,7 +114,7 @@ public class ResumeParser {
         frame.repaint();
 	}
 
-    public static JTable createJTable(Object[][] data, String[] colNames) {
+    public static JTable createJTable(Object[][] data, String[] colNames, final String path) {
         DefaultTableModel tableModel = new DefaultTableModel(data, colNames) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -130,7 +133,28 @@ public class ResumeParser {
                     int column = target.getSelectedColumn();
 
                     // Spawn the pdf Panel.
-                    System.out.println("Clicked");
+                    SwingController controller = new SwingController();
+                    SwingViewBuilder factory = new SwingViewBuilder(controller);
+
+                    JPanel viewerComponentPanel = factory.buildViewerPanel();
+                    controller.getDocumentViewController().setAnnotationCallback(
+                            new MyAnnotationCallback( controller.getDocumentViewController()));
+
+                    JFrame applicationFrame = new JFrame();
+                    applicationFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    applicationFrame.getContentPane().add(viewerComponentPanel);
+
+                    String folder = "./" + path;
+                    System.out.println(folder);
+                    File toFolder = new File(folder);
+                    File[] listOfFiles = toFolder.listFiles();
+
+                    // Now that the GUI is all in place, we can try opening a PDF
+                    controller.openDocument(listOfFiles[row].getAbsolutePath());
+
+                    // show the component
+                    applicationFrame.pack();
+                    applicationFrame.setVisible(true);
 
                 }
             }
